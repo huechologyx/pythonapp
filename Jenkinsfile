@@ -19,7 +19,7 @@ node {
 
     stage('Deploy') {
 
-	sh './pythonapp/stop-container-service.sh'
+	sh 'sh ./pythonapp/stop-container-service.sh'
 
         sh ("docker run -d -p 3333:3333 ${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
     }
