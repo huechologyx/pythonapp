@@ -16,8 +16,13 @@ node {
     }
     }
 
+
     stage('Deploy') {
-	sh ("docker stop $(docker ps  | grep :3333 | awk '{print "\$1"}')")
+
+	dir('/pythonapp'){
+		sh './stop-container-service.sh'
+	}
+
         sh ("docker run -d -p 3333:3333 ${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
     }
 
