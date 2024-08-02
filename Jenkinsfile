@@ -17,7 +17,7 @@ node {
     }
 
     stage('Deploy') {
-	sh ("docker stop $(docker ps  | grep :3333 | awk '{print ${1}}')")
+	sh ("docker stop $(docker ps  | grep :3333 | awk '{print \$1}')")
         sh ("docker run -d -p 3333:3333 ${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
     }
 
