@@ -6,7 +6,7 @@ api = Api(app)
 
 class Greeting (Resource):
     def get(self):
-        return 'Hello World! to Hello World! I am learning DevOps!'
+        return 'Hello Echologyx! I am learning DevOps!'
 
 api.add_resource(Greeting, '/') # Route_1
 
